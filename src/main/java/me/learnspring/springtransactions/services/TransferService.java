@@ -31,6 +31,8 @@ public class TransferService {
 
         accountRepository.changeBalance(sender.getId(), senderNewBalance);
         accountRepository.changeBalance(receiver.getId(), receiverNewBalance);
+
+        throw new RuntimeException("Something went wrong");
     }
 
     public List<Account> getAllAccounts() {
