@@ -31,4 +31,9 @@ public class AccountRepository {
         String sql = "SELECT * FROM account";
         return jdbc.query(sql, new AccountMapper());
     }
+
+    public List<Account> findAccountsByName(String name) {
+        String sql = "SELECT * FROM account WHERE name = ?";
+        return jdbc.query(sql, new AccountMapper(), name);
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class TransferServiceSpringData implements TransferService {
@@ -37,6 +38,11 @@ public class TransferServiceSpringData implements TransferService {
 
     public Iterable<Account> getAllAccounts() {
         return accountRepository.findAll();
+    }
+
+    @Override
+    public List<Account> getAccountsByName(String name) {
+        return accountRepository.findAccountByName(name);
     }
 
 }

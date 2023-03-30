@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class TransferServiceJDBC {
+public class TransferServiceJDBC implements TransferService{
 
     private final AccountRepository accountRepository;
 
@@ -38,4 +38,11 @@ public class TransferServiceJDBC {
     public List<Account> getAllAccounts() {
         return accountRepository.getAllAccounts();
     }
- }
+
+    @Override
+    public List<Account> getAccountsByName(String name) {
+        return accountRepository.findAccountsByName(name);
+    }
+
+
+}
